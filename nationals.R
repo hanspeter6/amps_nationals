@@ -72,3 +72,24 @@ saveRDS(set08_nat, "set08_nat.rds")
 saveRDS(set10_nat, "set10_nat.rds")
 saveRDS(set12_nat, "set12_nat.rds")
 saveRDS(set14_nat, "set14_nat.rds")
+
+# define minimum (based on 2002 national products only) to ensure same variables...
+names_02 <- names(set02_nat[20:ncol(set02_nat)])
+names_02 <- names_02[-14] # get rid of FHM which disappears in 2014
+
+# define min sets
+set02_min <- data.frame(cbind(set02_simple[,1:19], set02_nat[,which(names(set02_nat) %in% names_02)]   ))     
+set05_min <- data.frame(cbind(set05_simple[,1:19], set05_nat[,which(names(set05_nat) %in% names_02)]   ))     
+set08_min <- data.frame(cbind(set08_simple[,1:21], set08_nat[,which(names(set08_nat) %in% names_02)]   ))     
+set10_min <- data.frame(cbind(set10_simple[,1:21], set10_nat[,which(names(set10_nat) %in% names_02)]   ))     
+set12_min <- data.frame(cbind(set12_simple[,1:21], set12_nat[,which(names(set12_nat) %in% names_02)]   ))     
+set14_min <- data.frame(cbind(set14_simple[,1:21], set14_nat[,which(names(set14_nat) %in% names_02)]   ))     
+
+# save min sets
+# save them
+saveRDS(set02_min, "set02_min.rds")
+saveRDS(set05_min, "set05_min.rds")
+saveRDS(set08_min, "set08_min.rds")
+saveRDS(set10_min, "set10_min.rds")
+saveRDS(set12_min, "set12_min.rds")
+saveRDS(set14_min, "set14_min.rds")
